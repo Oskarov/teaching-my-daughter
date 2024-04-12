@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch}                from "react-redux";
 import {formTask1}                  from "../../../effects/SASEffect";
 import {ISASTask1question}          from "../../../interfaces/ISubjectActionSign";
+import mainStyle                    from "../../../all.module.scss";
+import styles                       from "./index.module.scss";
 
 interface FindRightSubjectActionSignProps {
 
@@ -22,8 +24,12 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
         fn();
     }, [])
 
-    return <div>
-        {questions.map(item => <div>{item.questionItem}</div>)}
+    return  <div className={mainStyle.centerWrapper}>
+        <div className={mainStyle.centerContainer}>
+            <div className={styles.header}>Задание 1: Найди подходящие слова</div>
+
+
+        </div>
     </div>;
 }
 
