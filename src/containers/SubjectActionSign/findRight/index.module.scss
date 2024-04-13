@@ -6,3 +6,32 @@
   font-style: normal;
   color: #46585a;
 }
+
+.overlay{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 128, 0, 0.92);
+
+  &.wrong{
+    background: rgba(128, 4, 0, 0.92);
+  }
+
+  .verdict{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
+
+  .rightAnswer{
+    font-size: 18px;
+    >*{
+      color: #b8bfac;
+    }
+  }
+}

@@ -6,6 +6,7 @@
   min-width: 100vw;
 
   .centerContainer {
+    position: relative;
     min-height: 100px;
     background: rgb(254, 250, 240);
     background: linear-gradient(0deg, rgba(254, 250, 240, 1) 8%, rgba(253, 229, 210, 1) 44%);

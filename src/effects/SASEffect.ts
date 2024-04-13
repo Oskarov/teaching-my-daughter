@@ -26,6 +26,7 @@ export const formTask1 = (count: number) => {
             rightAnswer: ISASQuestions.Что
         }));
         const allCategoriesQuestions: ISASTask1question[] = shuffleArray([...actions, ...whos, ...whats, ...signs]) as ISASTask1question[];
+       console.log(allCategoriesQuestions.length)
         const resultQuestions = allCategoriesQuestions.slice(0, count);
         return resultQuestions.map((item, idx) => ({
             ...item,
