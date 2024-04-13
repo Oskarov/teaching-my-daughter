@@ -24,6 +24,7 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
         const fn = async () => {
             const data = await dispatch(formTask1(10)) as unknown as ISASTask1question[];
             if (data.length) {
+                console.log(data);
                 setQuestions(data);
             }
         }
