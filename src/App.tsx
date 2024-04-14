@@ -10,7 +10,8 @@ import {setLoading}                                                 from "./slic
 import {createBrowserRouter, Route, Router, RouterProvider, Routes} from 'react-router-dom';
 import SubjectActionSign                                            from "./containers/SubjectActionSign";
 import FindRightSubjectActionSign
-                                                                    from "./containers/SubjectActionSign/findRight/findRight";
+               from "./containers/SubjectActionSign/findRight/findRight";
+import Control from 'containers/control/control';
 
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
         loadingText: state.app.loadingText
     }));
     const dispatch = useDispatch();
-    useEffect(() => {
+   /* useEffect(() => {
         setTimeout(() => {
             dispatch(setLoading(''))
         }, 1000)
-    }, []);
+    }, []);*/
 
     let router = createBrowserRouter([
         {
@@ -54,6 +55,7 @@ function App() {
             <RouterProvider router={router}/>
             <ReduxConfirmationDialog/>
             <ReduxInformationDialog/>
+            <Control/>
         </div>
     );
 }

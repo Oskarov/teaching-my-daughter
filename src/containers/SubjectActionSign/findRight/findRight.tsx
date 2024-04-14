@@ -5,6 +5,10 @@ import {ISASQuestions, ISASTask1question} from "../../../interfaces/ISubjectActi
 import mainStyle                          from "../../../all.module.scss";
 import styles                             from "./index.module.scss";
 import CN                                 from 'classnames';
+import {Link}                             from "react-router-dom";
+import TaskCompleted                      from "../../../components/taskCompleted/taskCompleted";
+import TaskOverlay                        from "../../../components/taskOverlay/taskOverlay";
+import {addCompleted}                     from "../../../slices/statistic";
 
 interface FindRightSubjectActionSignProps {
 
@@ -44,46 +48,44 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
             setOverlayData('');
             if (currentQuestionIndex === questions.length - 1) {
                 setTestCompeted(true);
+                dispatch(addCompleted({
+                    name: 'Предмет, действие, признак - 1 - На какой вопрос отвечает слово?',
+                    rightCount: rightAnswersCount,
+                    wrongCount: wrongAnswersCount
+                }))
             } else {
                 setCurrentQuestionIndex(state => state + 1);
             }
 
-        }, 5000)
+        }, 500)
     }
 
 
     return <div className={mainStyle.centerWrapper}>
         <div className={mainStyle.centerContainer}>
+            <div className={styles.header}>Задание 1: На какой вопрос отвечает слово?</div>
             {!testCompleted && <div>
-                {questions.length > 0 && !!questions[currentQuestionIndex] && !!overlayData &&
-                <div className={CN(styles.overlay, {
-                    [styles.wrong]: overlayData === "Не правильно"
-                })}>
-                    <div>
-                        <div className={styles.verdict}>{overlayData}</div>
-                        <div
-                            className={styles.rightAnswer}>Слово <span>{questions[currentQuestionIndex].questionItem}</span> отвечает
-                            на
-                            вопрос <span>{questions[currentQuestionIndex].rightAnswer}</span></div>
-                    </div>
-                </div>}
-                <div className={styles.header}>Задание 1: На какой вопрос отвечает слово?</div>
-                <div className={styles.subheader}>На какой вопрос отвечает слово зеленого цвета?</div>
+                <TaskOverlay testCompleted={testCompleted} questions={questions}
+                             currentQuestionIndex={currentQuestionIndex} overlayData={overlayData}/>
+                <div className={styles.subheader}>Нажми правильную кнопку. На какой вопрос отвечает
+                    слово <span>зелёного</span> цвета?
+                </div>
                 {questions.length > 0 && !!questions[currentQuestionIndex] && <div>
                     <div>
-                        <div>Вопрос № {questions[currentQuestionIndex].number} из {questions.length}</div>
-                        <div>{questions[currentQuestionIndex].questionItem}</div>
-                        <div>
-                            <div onClick={() => {
+                        <div className={styles.counter}>Вопрос
+                            № {questions[currentQuestionIndex].number} из {questions.length}</div>
+                        <div className={styles.word}>{questions[currentQuestionIndex].questionItem}</div>
+                        <div className={styles.buttonWrapper}>
+                            <div className={mainStyle.answerButton} onClick={() => {
                                 answerHandler(ISASQuestions.Кто)
                             }}>{ISASQuestions.Кто}</div>
-                            <div onClick={() => {
+                            <div className={mainStyle.answerButton} onClick={() => {
                                 answerHandler(ISASQuestions.Что)
                             }}>{ISASQuestions.Что}</div>
-                            <div onClick={() => {
+                            <div className={mainStyle.answerButton} onClick={() => {
                                 answerHandler(ISASQuestions.ЧтоДелает)
                             }}>{ISASQuestions.ЧтоДелает}</div>
-                            <div onClick={() => {
+                            <div className={mainStyle.answerButton} onClick={() => {
                                 answerHandler(ISASQuestions.Какой)
                             }}>{ISASQuestions.Какой}</div>
                         </div>
@@ -93,11 +95,8 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
                 </div>}
             </div>}
 
-            {testCompleted && <div>
-                <div>Поздравляю, тест пройден! Умничка!</div>
-                <div> В этот раз правильных ответов <span>{rightAnswersCount}</span>, а не
-                    правильных <span>{wrongAnswersCount}</span></div>
-            </div>}
+            <TaskCompleted taskCompleted={testCompleted} rightAnswersCount={rightAnswersCount}
+                           wrongAnswersCount={wrongAnswersCount} targetToReturn='SubActSig'/>
 
         </div>
     </div>;

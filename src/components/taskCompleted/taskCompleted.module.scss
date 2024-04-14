@@ -1,0 +1,49 @@
+
+.completed {
+  padding-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+
+  .cong {
+    margin-bottom: 16px;
+  }
+
+  .resume {
+    > * {
+      color: green;
+    }
+  }
+}
+
+.control {
+  padding-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > * {
+    margin: 4px 16px;
+  }
+}
+
+.button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: rgb(235, 176, 161);
+  background: linear-gradient(41deg, rgba(235, 176, 161, 1) 8%, rgba(251, 218, 209, 1) 44%);
+  transition-duration: 500ms;
+
+  * {
+    color: #46585a;
+  }
+
+  svg {
+    width: 38px;
+    height: 38px;
+  }
+}
