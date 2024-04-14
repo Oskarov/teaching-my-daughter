@@ -5,10 +5,10 @@ export enum ISASTypes {
 }
 
 export enum ISASQuestions {
-    Что = "Что",
-    Кто = "Кто",
-    ЧтоДелает = "Что делает",
-    Какой = "Какой, Какая, Какие"
+    Что = "Что?",
+    Кто = "Кто?",
+    ЧтоДелает = "Что делает?",
+    Какой = "Какой? Какая? Какие?"
 }
 
 export interface ISASTask1question {
