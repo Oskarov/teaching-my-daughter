@@ -15,7 +15,7 @@ import {
 const persistConfig = {
     key: 'root',
     storage: storage,
-    blacklist: ['modalSlice', 'trackerNoMemo'],
+    blacklist: ['modalSlice'],
 }
 
 export const rootReducers = combineReducers({

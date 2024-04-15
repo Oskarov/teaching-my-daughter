@@ -25,7 +25,7 @@ const TaskCompleted: React.FC<TaskOverlayProps> = ({
     }
 
     return <>
-        {!!taskCompleted && <div className={styles.completed}>
+        {taskCompleted && <div className={styles.completed}>
             <div className={styles.cong}>Поздравляю, тест пройден! Умничка!</div>
             <div className={styles.resume}> В этот раз правильных ответов <span>{rightAnswersCount}</span>, а не
                 правильных <span>{wrongAnswersCount}</span></div>

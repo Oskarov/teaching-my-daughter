@@ -11,7 +11,7 @@ interface StatisticPopupProps {
 
 const StatisticPopup: React.FC<StatisticPopupProps> = ({setOpen, isOpen}) => {
     const stat = useSelector((state:TStore)=> state.statistic.completedTasks);
-    const statR = stat.reverse();
+    const statR = [...stat].reverse();
 
     return <Dialog
         open={isOpen}

@@ -15,9 +15,7 @@ import Control from 'containers/control/control';
 
 
 function App() {
-    const {loadingText} = useSelector((state: TStore) => ({
-        loadingText: state.app.loadingText
-    }));
+    const loadingText = useSelector((state: TStore) => state.app.loadingText);
     const dispatch = useDispatch();
    /* useEffect(() => {
         setTimeout(() => {

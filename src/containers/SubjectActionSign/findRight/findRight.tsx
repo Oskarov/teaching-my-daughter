@@ -1,14 +1,13 @@
 import React, {useEffect, useState}       from 'react';
-import {useDispatch}                      from "react-redux";
+import {useDispatch, useSelector}         from "react-redux";
 import {formTask1}                        from "../../../effects/SASEffect";
 import {ISASQuestions, ISASTask1question} from "../../../interfaces/ISubjectActionSign";
 import mainStyle                          from "../../../all.module.scss";
 import styles                             from "./index.module.scss";
-import CN                                 from 'classnames';
-import {Link}                             from "react-router-dom";
 import TaskCompleted                      from "../../../components/taskCompleted/taskCompleted";
 import TaskOverlay                        from "../../../components/taskOverlay/taskOverlay";
-import {addCompleted}                     from "../../../slices/statistic";
+import {addStatisticData}                 from "../../../effects/statisticEffect";
+import {TStore}                           from "../../../store/store";
 
 interface FindRightSubjectActionSignProps {
 
@@ -23,11 +22,13 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
     const [rightAnswersCount, setRightAnswersCount] = useState(0);
     const [wrongAnswersCount, setWrongAnswersCount] = useState(0);
     const [testCompleted, setTestCompeted] = useState(false);
+    const numberOfQuestions = useSelector((state: TStore) => state.settings.numberOfQuestions);
+    const overlayDelayMs = useSelector((state: TStore) => state.settings.overlayDelayMs);
 
 
     useEffect(() => {
         const fn = async () => {
-            const data = await dispatch(formTask1(10)) as unknown as ISASTask1question[];
+            const data = await dispatch(formTask1(numberOfQuestions)) as unknown as ISASTask1question[];
             if (data.length) {
                 setQuestions(data);
             }
@@ -47,17 +48,17 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
         setTimeout(() => {
             setOverlayData('');
             if (currentQuestionIndex === questions.length - 1) {
-                setTestCompeted(true);
-                dispatch(addCompleted({
+                setTestCompeted(state => !state);
+                dispatch(addStatisticData({
                     name: 'Предмет, действие, признак - 1 - На какой вопрос отвечает слово?',
-                    rightCount: rightAnswersCount,
-                    wrongCount: wrongAnswersCount
+                    rightCount: rightAnswersCount + (isRight ? 1 : 0),
+                    wrongCount: wrongAnswersCount + (!isRight ? 1 : 0)
                 }))
             } else {
                 setCurrentQuestionIndex(state => state + 1);
             }
 
-        }, 500)
+        }, overlayDelayMs)
     }
 
 
