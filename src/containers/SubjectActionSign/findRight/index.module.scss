@@ -12,8 +12,12 @@
 .subheader{
   margin-bottom: 24px;
   text-align: center;
+  font-size: 16px;
   >*{
-    color: green;
+    color: $dark_green;
+    font-weight: bold;
+    font-size: 24px;
+  ;
   }
 }
 
@@ -25,8 +29,9 @@
 .word{
   margin-bottom: 24px;
   text-align: center;
-  color: green;
-  font-size: 40px;
+  color: $dark_green;
+  font-size: 56px;
+  font-weight: bold;
 }
 
 .buttonWrapper{

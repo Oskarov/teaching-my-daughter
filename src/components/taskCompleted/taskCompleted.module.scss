@@ -1,3 +1,5 @@
+@import '../../assets/css/_partials';
+
 
 .completed {
   padding-bottom: 40px;
@@ -10,7 +12,7 @@
 
   .resume {
     > * {
-      color: green;
+      color: $medium_green;
     }
   }
 }
@@ -34,12 +36,12 @@
   width: 60px;
   height: 60px;
   border-radius: 14px;
-  background: rgb(235, 176, 161);
+  background: $main_bg;
   background: linear-gradient(41deg, rgba(235, 176, 161, 1) 8%, rgba(251, 218, 209, 1) 44%);
   transition-duration: 500ms;
 
   * {
-    color: #46585a;
+    color: $main_font;
   }
 
   svg {
