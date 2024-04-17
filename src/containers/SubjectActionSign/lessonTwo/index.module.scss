@@ -1,0 +1,43 @@
+@import '../../../assets/css/_partials';
+
+.header{
+  padding: 16px 24px;
+  font-size: 34px;
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: $main_font;
+}
+
+.subheader{
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 16px;
+  >*{
+    color: $dark_green;
+    font-weight: bold;
+    font-size: 24px;
+  ;
+  }
+}
+
+.counter{
+  text-align: center;
+  font-size: 12px;
+}
+
+.word{
+  margin-bottom: 24px;
+  text-align: center;
+  color: $dark_green;
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.buttonWrapper{
+  padding-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+

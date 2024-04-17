@@ -3,9 +3,14 @@ import CN                  from "classnames";
 import styles              from "./taskOverlay.module.scss";
 import {ISASTask1question} from "../../interfaces/ISubjectActionSign";
 
+interface IDefaultQuestion {
+    questionItem: string,
+    rightAnswer: string
+}
+
 interface TaskOverlayProps {
     testCompleted: boolean,
-    questions: ISASTask1question[],
+    questions: IDefaultQuestion[],
     currentQuestionIndex: number,
     overlayData: '' | 'Правильно' | 'Не правильно'
 }
