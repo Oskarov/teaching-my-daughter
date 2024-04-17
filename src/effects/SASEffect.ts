@@ -48,11 +48,28 @@ export const formTask1 = (count: number) => {
 
 export const formTask2 = (count: number) => {
     return async function (dispatch: Dispatch<any>): Promise<ISASTask2question[]> {
-        return [{
-            number: 1,
-            rightAnswer: ISASCategories.Признак,
-            questionItem: 'Красивый'
-        }];
+        const actions: ISASTask2question[] = sasActions.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: ISASCategories.Действие
+        }));
+        const signs: ISASTask2question[] = sasSigns.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: ISASCategories.Признак
+        }));
+        const items: ISASTask2question[] = [...sasWhos.split(','), ...sasWhats.split(',')].map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: ISASCategories.Предмет
+        }));
+        const allCategoriesQuestions: ISASTask2question[] = shuffleArray([...actions, ...items, ...signs]) as ISASTask2question[];
+        const resultQuestions = allCategoriesQuestions.slice(0, count);
+
+        return resultQuestions.map((item, idx) => ({
+            ...item,
+            number: idx + 1
+        }));
     }
 }
 
