@@ -1,3 +1,6 @@
+@import './assets/css/_partials';
+
+
 .centerWrapper {
   display: flex;
   align-items: center;
@@ -8,7 +11,7 @@
   .centerContainer {
     position: relative;
     min-height: 100px;
-    background: rgb(254, 250, 240);
+    background: $light_bg;
     background: linear-gradient(0deg, rgba(254, 250, 240, 1) 8%, rgba(253, 229, 210, 1) 44%);
     border-radius: 50px;
     overflow: hidden;
@@ -37,12 +40,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #30414a;
-  color: rgb(254, 250, 240);
+  background: $light_yellow;
+  color: $main_font;
   transition-duration: 500ms;
 
   &:hover{
-    background: rgb(254, 250, 240);
+    background: $light_green;
     color: #30414a;
   }
 }
