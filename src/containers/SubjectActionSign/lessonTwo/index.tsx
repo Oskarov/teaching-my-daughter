@@ -67,7 +67,7 @@ const LessonTwoSubjectActionSign: React.FC<LessonTwoSubjectActionSignProps> = ({
             <div className={styles.header}>Задание 1: К какой категории относится слово?</div>
             {!testCompleted && <div>
                 <TaskOverlay testCompleted={testCompleted} questions={questions}
-                             currentQuestionIndex={currentQuestionIndex} overlayData={overlayData}/>
+                             currentQuestionIndex={currentQuestionIndex} overlayData={overlayData} compareWords={'относится к категории'}/>
                 <div className={styles.subheader}>Нажми правильную кнопку. К какой категории относится слово <span>зелёного</span> цвета?
                 </div>
                 {questions.length > 0 && !!questions[currentQuestionIndex] && <div>

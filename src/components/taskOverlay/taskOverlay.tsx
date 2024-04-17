@@ -12,10 +12,14 @@ interface TaskOverlayProps {
     testCompleted: boolean,
     questions: IDefaultQuestion[],
     currentQuestionIndex: number,
-    overlayData: '' | 'Правильно' | 'Не правильно'
+    overlayData: '' | 'Правильно' | 'Не правильно',
+    compareWords?: string
 }
 
-const TaskOverlay: React.FC<TaskOverlayProps> = ({testCompleted, overlayData, currentQuestionIndex, questions}) => {
+const TaskOverlay: React.FC<TaskOverlayProps> = ({testCompleted, overlayData, currentQuestionIndex, questions, compareWords}) => {
+    if (!compareWords){
+        compareWords = 'отвечает на вопрос'
+    }
     return (!testCompleted && questions.length > 0 && !!questions[currentQuestionIndex] && !!overlayData) ?
         <div className={CN(styles.overlay, {
             [styles.wrong]: overlayData === "Не правильно"
@@ -23,9 +27,7 @@ const TaskOverlay: React.FC<TaskOverlayProps> = ({testCompleted, overlayData, cu
             <div>
                 <div className={styles.verdict}>{overlayData}</div>
                 <div
-                    className={styles.rightAnswer}>Слово <span>{questions[currentQuestionIndex].questionItem}</span> отвечает
-                    на
-                    вопрос <span>{questions[currentQuestionIndex].rightAnswer}</span></div>
+                    className={styles.rightAnswer}>Слово <span>{questions[currentQuestionIndex].questionItem}</span> {compareWords} <span>{questions[currentQuestionIndex].rightAnswer}</span></div>
             </div>
         </div> : <div/>
 }
