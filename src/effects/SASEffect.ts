@@ -1,7 +1,19 @@
-import {Dispatch}                                from "redux";
-import {ISASQuestions, ISASTask1question}        from "../interfaces/ISubjectActionSign";
-import {sasActions, sasSigns, sasWhats, sasWhos} from "../data/sas";
-import {shuffleArray}                            from "../utils/shuffleArray";
+import {Dispatch}     from "redux";
+import {
+    ISASCategories,
+    ISASQuestions,
+    ISASTask1question,
+    ISASTask2question,
+    ISASTask3question,
+    ISASTask4question
+}                     from "../interfaces/ISubjectActionSign";
+import {
+    sasActions,
+    sasSigns,
+    sasWhats,
+    sasWhos
+}                     from "../data/sas";
+import {shuffleArray} from "../utils/shuffleArray";
 
 export const formTask1 = (count: number) => {
     return async function (dispatch: Dispatch<any>): Promise<ISASTask1question[]> {
@@ -31,5 +43,36 @@ export const formTask1 = (count: number) => {
             ...item,
             number: idx + 1
         }));
+    }
+}
+
+export const formTask2 = (count: number) => {
+    return async function (dispatch: Dispatch<any>): Promise<ISASTask2question[]> {
+        return [{
+            number: 1,
+            rightAnswer: ISASCategories.Признак,
+            questionItem: 'Красивый'
+        }];
+    }
+}
+
+export const formTask3 = (count: number) => {
+    return async function (dispatch: Dispatch<any>): Promise<ISASTask3question[]> {
+        return [{
+            number: 1,
+            rightAnswer: 'Гуляет',
+            questionItem: ISASQuestions.ЧтоДелает,
+            variants:['Гуляет', 'Кошка', 'Фиолетовый', 'Чашка']
+        }];
+    }
+}
+export const formTask4 = (count: number) => {
+    return async function (dispatch: Dispatch<any>): Promise<ISASTask4question[]> {
+        return [{
+            number: 1,
+            rightAnswer: 'Гуляет',
+            questionItem: ISASCategories.Действие,
+            variants:['Гуляет', 'Кошка', 'Фиолетовый', 'Чашка']
+        }];
     }
 }

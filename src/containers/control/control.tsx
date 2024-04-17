@@ -27,7 +27,17 @@ const Control: React.FC<MusicProps> = ({}) => {
 
     useEffect(() => {
         setPlayer([...musicArray.map(el => new Audio(el))])
-    }, [])
+    }, []);
+
+    useEffect(()=>{
+        if (players.length){
+            players.forEach(player=>{
+              player.addEventListener('ended', ()=>{
+                  next();
+              })
+            })
+        }
+    }, [players])
 
 
     const play = () => {
