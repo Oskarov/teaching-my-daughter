@@ -64,7 +64,9 @@ const LessonTwoSubjectActionSign: React.FC<LessonTwoSubjectActionSignProps> = ({
 
     return <div className={mainStyle.centerWrapper}>
         <div className={mainStyle.centerContainer}>
-            <div className={styles.header}>Задание 1: К какой категории относится слово?</div>
+            <div className={styles.newContainer}>
+
+            <div className={styles.header}>Задание 2: К какой категории относится слово?</div>
             {!testCompleted && <div>
                 <TaskOverlay testCompleted={testCompleted} questions={questions}
                              currentQuestionIndex={currentQuestionIndex} overlayData={overlayData} compareWords={'относится к категории'}/>
@@ -94,7 +96,7 @@ const LessonTwoSubjectActionSign: React.FC<LessonTwoSubjectActionSignProps> = ({
 
             <TaskCompleted taskCompleted={testCompleted} rightAnswersCount={rightAnswersCount}
                            wrongAnswersCount={wrongAnswersCount} targetToReturn='SubActSig'/>
-
+            </div>
         </div>
     </div>;
 }

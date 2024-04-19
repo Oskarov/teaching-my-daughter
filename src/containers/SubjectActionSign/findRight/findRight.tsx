@@ -64,6 +64,8 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
 
     return <div className={mainStyle.centerWrapper}>
         <div className={mainStyle.centerContainer}>
+            <div className={styles.newContainer}>
+
             <div className={styles.header}>Задание 1: На какой вопрос отвечает слово?</div>
             {!testCompleted && <div>
                 <TaskOverlay testCompleted={testCompleted} questions={questions}
@@ -98,7 +100,7 @@ const FindRightSubjectActionSign: React.FC<FindRightSubjectActionSignProps> = ({
 
             <TaskCompleted taskCompleted={testCompleted} rightAnswersCount={rightAnswersCount}
                            wrongAnswersCount={wrongAnswersCount} targetToReturn='SubActSig'/>
-
+            </div>
         </div>
     </div>;
 }
