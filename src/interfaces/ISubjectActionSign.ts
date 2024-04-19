@@ -42,3 +42,10 @@ export interface ISASTask4question {
     questionItem: ISASCategories, //предмет, признак, действие
     variants: string[] //Обязательно включает правильный
 }
+
+
+export interface ISASTask5question {
+    number: number,
+    rightAnswer: string, // Действие что Делает? / Признак Какой? / ISASQuestions ISASCategories
+    questionItem: string,
+}

@@ -5,8 +5,8 @@ import {
     ISASTask1question,
     ISASTask2question,
     ISASTask3question,
-    ISASTask4question
-}                         from "../interfaces/ISubjectActionSign";
+    ISASTask4question, ISASTask5question
+} from "../interfaces/ISubjectActionSign";
 import {
     sasActions,
     sasSigns,
@@ -173,6 +173,37 @@ export const formTask4 = (count: number) => {
             }
         });
 
+        return resultQuestions.map((item, idx) => ({
+            ...item,
+            number: idx + 1
+        }));
+    }
+}
+
+export const formTask5 = (count: number) => {
+    return async function (dispatch: Dispatch<any>): Promise<ISASTask1question[]> {
+        const actions: ISASTask5question[] = sasActions.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: `${ISASCategories.Действие} ${ISASQuestions.ЧтоДелает}`
+        }));
+        const signs: ISASTask5question[] = sasSigns.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: `${ISASCategories.Признак} ${ISASQuestions.Какой}`
+        }));
+        const whos: ISASTask5question[] = sasWhos.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: `${ISASCategories.Предмет} ${ISASQuestions.Кто}`
+        }));
+        const whats: ISASTask5question[] = sasWhats.split(',').map(i => ({
+            number: 0,
+            questionItem: i,
+            rightAnswer: `${ISASCategories.Предмет} ${ISASQuestions.Что}`
+        }));
+        const allCategoriesQuestions: ISASTask1question[] = shuffleArray([...actions, ...whos, ...whats, ...signs]) as ISASTask1question[];
+        const resultQuestions = allCategoriesQuestions.slice(0, count);
         return resultQuestions.map((item, idx) => ({
             ...item,
             number: idx + 1
