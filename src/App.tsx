@@ -13,6 +13,7 @@ import FindRightSubjectActionSign
                from "./containers/SubjectActionSign/findRight/findRight";
 import Control from 'containers/control/control';
 import LessonTwoSubjectActionSign from "./containers/SubjectActionSign/lessonTwo";
+import LessonThreeSubjectActionSign from "./containers/SubjectActionSign/lessonThree";
 
 
 function App() {
@@ -51,6 +52,13 @@ function App() {
             loader: () => ({ message: "Loading page" }),
             Component() {
                 return <LessonTwoSubjectActionSign/>
+            },
+        },
+        {
+            path: "/SubActSig/LessonThree",
+            loader: () => ({ message: "Loading page" }),
+            Component() {
+                return <LessonThreeSubjectActionSign/>
             },
         },
     ]);

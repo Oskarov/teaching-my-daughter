@@ -104,7 +104,7 @@ export const formTask3 = (count: number) => {
             rightAnswer: item.questionItem,
             variants: []
         }));
-        resultQuestions.map(item=>{
+        return resultQuestions.map((item, idx)=>{
             const variants:string[] = [item.rightAnswer];
             if (item.questionItem !== ISASQuestions.ЧтоДелает){
                 variants.push(RandomArrayElement(actions).questionItem);
@@ -120,15 +120,11 @@ export const formTask3 = (count: number) => {
             }
 
             return {
-                ...resultQuestions,
-                variants: variants
+                ...item,
+                variants: shuffleArray(variants),
+                number: idx + 1
             }
         });
-
-        return resultQuestions.map((item, idx) => ({
-            ...item,
-            number: idx + 1
-        }));
     }
 }
 export const formTask4 = (count: number) => {
@@ -156,7 +152,7 @@ export const formTask4 = (count: number) => {
             rightAnswer: item.questionItem,
             variants: []
         }));
-        resultQuestions.map(item=>{
+        return resultQuestions.map((item,idx)=>{
             const variants:string[] = [item.rightAnswer];
             if (item.questionItem !== ISASCategories.Действие){
                 variants.push(RandomArrayElement(actions).questionItem);
@@ -168,15 +164,12 @@ export const formTask4 = (count: number) => {
                 variants.push(RandomArrayElement(items).questionItem);
             }
             return {
-                ...resultQuestions,
-                variants: variants
+                ...item,
+                variants: variants,
+                number: idx + 1
             }
         });
 
-        return resultQuestions.map((item, idx) => ({
-            ...item,
-            number: idx + 1
-        }));
     }
 }
 

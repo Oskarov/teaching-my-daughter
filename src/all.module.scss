@@ -34,9 +34,11 @@
 
 .answerButton{
   cursor: pointer;
+  margin-right: 8px;
   font-size: 24px;
+  font-weight: bold;
   border-radius: 16px;
-  padding: 4px 16px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
   justify-content: center;
