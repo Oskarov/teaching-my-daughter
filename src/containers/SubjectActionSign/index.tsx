@@ -21,6 +21,9 @@ const SubjectActionSign: React.FC<SubjectActionSignProps> = ({}) => {
                 <div className={mainStyle.links}>
                     <Link to="/SubActSig/LessonThree">Задание 3: Найди слово, которое отвечает на вопрос</Link>
                 </div>
+                <div className={mainStyle.links}>
+                    <Link to="/SubActSig/LessonFour">Задание 4: Найди слово, которое относится к нужной категории</Link>
+                </div>
             </div>
         </div>
 

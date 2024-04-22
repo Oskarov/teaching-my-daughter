@@ -14,6 +14,7 @@ import FindRightSubjectActionSign
 import Control from 'containers/control/control';
 import LessonTwoSubjectActionSign from "./containers/SubjectActionSign/lessonTwo";
 import LessonThreeSubjectActionSign from "./containers/SubjectActionSign/lessonThree";
+import LessonFourSubjectActionSign from "./containers/SubjectActionSign/lessonFour";
 
 
 function App() {
@@ -59,6 +60,13 @@ function App() {
             loader: () => ({ message: "Loading page" }),
             Component() {
                 return <LessonThreeSubjectActionSign/>
+            },
+        },
+        {
+            path: "/SubActSig/LessonFour",
+            loader: () => ({ message: "Loading page" }),
+            Component() {
+                return <LessonFourSubjectActionSign/>
             },
         },
     ]);
