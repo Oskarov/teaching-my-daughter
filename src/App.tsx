@@ -15,6 +15,7 @@ import Control from 'containers/control/control';
 import LessonTwoSubjectActionSign from "./containers/SubjectActionSign/lessonTwo";
 import LessonThreeSubjectActionSign from "./containers/SubjectActionSign/lessonThree";
 import LessonFourSubjectActionSign from "./containers/SubjectActionSign/lessonFour";
+import LessonFiveSubjectActionSign from "./containers/SubjectActionSign/lessonFive";
 
 
 function App() {
@@ -67,6 +68,13 @@ function App() {
             loader: () => ({ message: "Loading page" }),
             Component() {
                 return <LessonFourSubjectActionSign/>
+            },
+        },
+        {
+            path: "/SubActSig/LessonFive",
+            loader: () => ({ message: "Loading page" }),
+            Component() {
+                return <LessonFiveSubjectActionSign/>
             },
         },
     ]);

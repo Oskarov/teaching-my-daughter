@@ -45,8 +45,14 @@
   background: $light_yellow;
   color: $main_font;
   transition-duration: 500ms;
+  position: relative;
+  z-index: 0;
 
   &:hover{
+    opacity: 0.9;
+  }
+
+  &.active{
     background: $light_green;
     color: #30414a;
   }
